@@ -38,6 +38,16 @@ export default function Post() {
            dataPost:data
         })
 
+           titlePost.current.value = "";
+           shortdescriptionsPost.current.value = "";
+           photoPost.current.value = "";
+           descriptionsOne.current.value = "";
+           photoOne.current.value = "";
+           descriptionsTwo.current.value = "";
+           photoTwo.current.value = "";
+           descriptionsThree.current.value = "";
+           
+
         return response
    }
     
