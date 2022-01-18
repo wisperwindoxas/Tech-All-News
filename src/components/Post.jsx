@@ -12,7 +12,6 @@ export default function Post() {
     const descriptionsThree = React.useRef(null)
 
 
-    const [post, setPost] = React.useState([])
     const [data, setData] = React.useState('')
 
     React.useEffect(() => {

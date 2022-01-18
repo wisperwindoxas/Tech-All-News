@@ -73,6 +73,44 @@
       "id": 6
     }
   ],
-  "users": [],
+  "users": [
+    {
+      "firstName": "Соатов",
+      "lastName": "Хуршид",
+      "userName": "wisper",
+      "email": "windoxas@gmail.com",
+      "password": "5hspkfn9",
+      "passwordRepeat": "5hspkfn9",
+      "id": 1
+    },
+    {
+      "firstName": "Qudratov",
+      "lastName": "Alisher",
+      "userName": "alish",
+      "email": "alish007@gmail.com",
+      "password": "alish007",
+      "passwordRepeat": "alish007",
+      "id": 2
+    },
+    {
+      "firstName": "Akmalov",
+      "lastName": "Buri",
+      "userName": "buri",
+      "email": "bui@mail.ru",
+      "password": "buri1234",
+      "passwordRepeat": "buri1234",
+      "id": 3
+    },
+    {
+      "firstName": "Малаев",
+      "lastName": "Жамшид ",
+      "userName": "jamish",
+      "email": "jamish@gmail.com",
+      "password": "jamish007",
+      "passwordRepeat": "jamish007",
+      "data": "18.01.2022",
+      "id": 4
+    }
+  ],
   "comments": []
 }
