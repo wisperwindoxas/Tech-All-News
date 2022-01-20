@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 export default function Register() {
 	const [currentPassword, setCurrentPassword] = React.useState(false)
 	const [currentUserName, setCurrentUserName] = React.useState(false)
@@ -150,6 +151,12 @@ export default function Register() {
 						<img src="./icons/write.png" alt="" />
 						Регистиратция
 					</button>
+					<Link to="/user">
+					<button className='author'>
+						<img src="./icons/sign-in.png" alt="" />
+						Войти
+					</button>
+					</Link>
 				</form>
 			</div>
 		</div>

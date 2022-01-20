@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import Header from './Header'
 export default function Post() {
 
     const titlePost = React.useRef(null)
@@ -51,7 +52,8 @@ export default function Post() {
    }
     
     return (
-        <>
+        <div className='postHeader'>
+        <Header/>
         <h1>Создать Пост</h1>
             <div className='post'>
                 <label className='postLabel'>
@@ -59,7 +61,7 @@ export default function Post() {
                     <input ref={titlePost} type="text" placeholder='Называния поста' />
                 </label>
                 <label className='postLabel'>
-                    <p>Короткий описания</p>
+                    <p>Описания</p>
                     <textarea ref={shortdescriptionsPost} className='textArea' cols="66" rows="5">
 
                     </textarea>
@@ -104,6 +106,6 @@ export default function Post() {
                 </div>
             </div>
 
-        </>
+        </div>
     )
 }
