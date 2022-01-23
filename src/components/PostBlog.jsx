@@ -15,9 +15,6 @@ export default function PostBlog() {
         }
         return getUserInfo()
     }, [])
-
-
-
     
   return(
     <>
@@ -33,9 +30,9 @@ export default function PostBlog() {
                     <img src={posts.photoTwo} alt="" />
                     <p>{posts.descriptionsThree}</p>
         </div>
-     
+        <Comments/>
     </div>
-    <Comments/>
+  
     </>
   )
 }

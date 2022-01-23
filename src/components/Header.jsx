@@ -46,10 +46,13 @@ export default function Header() {
     <>
       <div className="header" >
         <div className="container">
-          <div className="logo">
+            <div className="header_top_block">
+            <div className="logo">
             
             <Link to={'/'}> <img src="./icons/logotip.png" alt="" /></Link>
           </div>
+          
+            
           <nav className="menu">
             <ul>
              <Link to={'/'}> <li>Главный</li></Link>
@@ -59,6 +62,7 @@ export default function Header() {
               <li>Форум</li>
             </ul>
           </nav>
+        
           {
             localStorage.getItem('user') !== null ?
               <div
@@ -89,14 +93,13 @@ export default function Header() {
                     Вход
                   </button>
                 </Link>
-                <Link to="/register">
-                  <button>
-                    <img src="./icons/write.png" alt="register" />
-                    Регистиратция
-                  </button>
-                </Link>
               </div>
           }
+
+          <div className="mobile_menu">
+            <img src="./icons/menu.png" alt="" />
+          </div>
+            </div>
         </div>
       </div>
 

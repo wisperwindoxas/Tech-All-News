@@ -17,6 +17,7 @@ export default function Sections() {
 
 
     return (
+        <div className="container">
         <div className='sectioin'>
             {posts.map((post, index) => {
                 return (
@@ -37,26 +38,11 @@ export default function Sections() {
                             </div>
                         </div>
 
-                        <div className="wrapper_mobile">
-                            <div className="image">
-                                <img src={post.photoPost} alt="" />
-                            </div>
-                            <div className="left_content">
-                                <div className="title">
-                                    <h2>{post.titlePost}</h2>
-                                </div>
-
-
-                                <div className="message">
-                                    <span>{post.dataPost}</span>
-                                    <span><img src="./icons/message.png" alt="" /></span>
-                                </div>
-                            </div>
-                        </div>
                     </Link>
 
                 )
             })}
+        </div>
         </div>
     )
 }

@@ -29,7 +29,7 @@ export default function Comments() {
   return (
     <div className='comments'>
         <div className="commentForm">
-            <textarea name="" id="commentText" cols="80" rows="5" placeholder='Классная тема'></textarea>
+            <textarea name="" id="commentText" cols="80" rows="3" placeholder='Классная тема'></textarea>
             <button onClick={() => putComment()} className="commentBtn">Комментировать</button>
         </div>
 
