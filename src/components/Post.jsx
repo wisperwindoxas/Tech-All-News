@@ -1,19 +1,25 @@
 import React from 'react'
-import axios from 'axios'
 import Header from './Header'
+import { db } from './util/firebase'
+import { 
+    collection,
+     addDoc
+    } from 'firebase/firestore'
+
 export default function Post() {
 
     const titlePost = React.useRef(null)
-    const shortdescriptionsPost = React.useRef(null)
     const photoPost = React.useRef(null)
     const descriptionsOne = React.useRef(null)
     const photoOne = React.useRef(null)
     const descriptionsTwo = React.useRef(null)
     const photoTwo = React.useRef(null)
     const descriptionsThree = React.useRef(null)
+    const videoPost = React.useRef(null)
 
 
     const [data, setData] = React.useState('')
+   
 
     React.useEffect(() => {
         const calendar = new Date()
@@ -21,34 +27,31 @@ export default function Post() {
 
     }, [])
 
-    // React.useEffect(() => {
-
-    // }, [])
-
-    async function postFetchData () {
-        const response = await axios.post('http://localhost:3004/posts',{
+async function postFetchData () {
+    
+   const postDoc =  {
            titlePost:titlePost.current.value,
-           shortdescriptionsPost:shortdescriptionsPost.current.value,
            photoPost:photoPost.current.value,
            descriptionsOne:descriptionsOne.current.value,
+           videoUrl:videoPost.current.value,
            photoOne:photoOne.current.value,
            descriptionsTwo:descriptionsTwo.current.value,
            photoTwo:photoTwo.current.value,
            descriptionsThree:descriptionsThree.current.value,
            dataPost:data
-        })
+        }
 
            titlePost.current.value = "";
-           shortdescriptionsPost.current.value = "";
            photoPost.current.value = "";
            descriptionsOne.current.value = "";
            photoOne.current.value = "";
            descriptionsTwo.current.value = "";
            photoTwo.current.value = "";
            descriptionsThree.current.value = "";
+           videoPost.current.value= ""
            
-
-        return response
+           await addDoc(collection(db, "posts"), postDoc);
+           
    }
     
     return (
@@ -61,12 +64,6 @@ export default function Post() {
                     <input ref={titlePost} type="text" placeholder='Называния поста' />
                 </label>
                 <label className='postLabel'>
-                    <p>Описания</p>
-                    <textarea ref={shortdescriptionsPost} className='textArea' cols="66" rows="5">
-
-                    </textarea>
-                </label>
-                <label className='postLabel'>
                     <p>Изображения поста</p>
                     <input ref={photoPost} type="url" placeholder='Изображения поста URL' />
                 </label>
@@ -75,6 +72,10 @@ export default function Post() {
                     <textarea ref={descriptionsOne} className='textArea' cols="66" rows="5">
 
                     </textarea>
+                </label>
+                <label className='postLabel'>
+                    <p>Видео поста</p>
+                    <input ref={videoPost} type="url" placeholder='Видео поста URL' />
                 </label>
                 <label className='postLabel'>
                     <p>№1 Изображения поста</p>

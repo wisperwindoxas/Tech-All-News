@@ -1,21 +1,42 @@
 import React from 'react';
-import axios from 'axios'
 import { useParams } from 'react-router-dom';
 import Header from './Header';
 import Comments from './Comments';
+import {db} from './util/firebase'
+
+import { 
+    doc,
+     getDoc,
+    } from 'firebase/firestore'
+
+
 export default function PostBlog() {
 
     const {id} = useParams()
     const [posts, setPosts] = React.useState([])
 
-    React.useState(() => {
-        async function getUserInfo(){
-            const response = await axios.get(`http://localhost:3004/posts/${id}`)
-            setPosts(response.data)
-        }
+
+
+    React.useEffect(() => {
+          async function getUserInfo(){
+            const docRef = doc(db, "posts", id);
+            const docSnap = await getDoc(docRef);
+
+            if (docSnap.exists()) {
+              setPosts(docSnap.data())
+            } else {
+              // doc.data() will be undefined in this case
+              console.log("No such document!");
+            }
+            
+           
+       }
+        
         return getUserInfo()
-    }, [])
+    }, [id])
     
+
+    console.log(id);
   return(
     <>
     <Header/>
@@ -24,6 +45,7 @@ export default function PostBlog() {
         <div className='posts'>
                     <h1>{posts.titlePost}</h1>
                     <img src={posts.photoPost} alt="" />
+                    {posts.videoUrl ? <iframe src={posts.videoUrl} frameBorder="0"></iframe> : ""}
                     <p>{posts.descriptionsOne}</p>
                     <img src={posts.photoOne} alt="" />
                     <p>{posts.descriptionsTwo}</p>
@@ -36,3 +58,4 @@ export default function PostBlog() {
     </>
   )
 }
+{/* <iframe width="640" height="360" src="https://www.youtube.com/embed/wCr7qoOXcXc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><iframe width="640" height="360" src="https://www.youtube.com/embed/wCr7qoOXcXc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}

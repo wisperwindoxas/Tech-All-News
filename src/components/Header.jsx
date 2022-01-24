@@ -1,5 +1,4 @@
 import React from "react";
-import Sections from "./Sections";
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 export default function Header() {
