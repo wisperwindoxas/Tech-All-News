@@ -1,5 +1,4 @@
 import React, {useState, useEffect, useRef} from 'react'
-import axios from  'axios'
 import {Link} from 'react-router-dom'
 export default function Sigin() {
 
@@ -10,13 +9,7 @@ export default function Sigin() {
 	const userName = useRef(null)
 	const password = useRef(null)
 	useEffect(() => {
-		async function getFetchData(){
-			const response = await axios.get('http://localhost:3004/users');
-			setUsers(response.data)
-			
-		}
-
-		return getFetchData()
+		
 	}, [])
 
 	function checkUser(){

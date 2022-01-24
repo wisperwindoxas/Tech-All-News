@@ -35,8 +35,6 @@ export default function PostBlog() {
         return getUserInfo()
     }, [id])
     
-
-    console.log(id);
   return(
     <>
     <Header/>

@@ -9,7 +9,6 @@ const MyLoader = (props) => (
     viewBox="0 0 392 470"
     backgroundColor="#c0c0"
     foregroundColor="#33ace1"
-    borderRaduis="10px"
     {...props}
   >
      

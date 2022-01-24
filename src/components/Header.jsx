@@ -5,20 +5,19 @@ export default function Header() {
 
   const [showProfile, setShowProfile] = React.useState(false)
   const [users, setUsers] = React.useState([])
+  const [showMenuMobile, setShowMenuMobile] = React.useState(false)
 
   const [filter, setFilter] = React.useState([])
 
 
   React.useEffect(() => {
-    async function getDataFetch() {
-      const response = await axios.get('http://localhost:3004/users')
-      setUsers(response.data)
 
-    }
+
+  
 
 
 
-    return getDataFetch()
+   
   }, [])
 
 
@@ -61,6 +60,30 @@ export default function Header() {
               <li>Форум</li>
             </ul>
           </nav>
+
+        
+                  <nav className="menu_mobile" style={ showMenuMobile ? 
+                    {transform:"translateY(0%)", transition:"0.3s ease-in-out"}
+                    :{transform:"translateY(-1000px)", transition:"0.3s ease-in-out"}
+                  }>
+                    <ul>
+                     <Link to={'/'}> <li>Главный</li></Link>
+                      <li>Новости</li>
+                      <li>Техника</li>
+                      <li>Игры</li>
+                      <li>Форум</li>
+                      <li>
+                    
+                      <Link className="mobile_auth_btn" to={'/user'}>
+                        <button>
+                          <img src="./icons/sign-in.png" alt="sign-in" />
+                          Вход
+                        </button>
+                      </Link>
+        
+                      </li>
+                    </ul>
+                  </nav> 
         
           {
             localStorage.getItem('user') !== null ?
@@ -95,7 +118,7 @@ export default function Header() {
               </div>
           }
 
-          <div className="mobile_menu">
+          <div onClick={() => setShowMenuMobile(!showMenuMobile)}  className="mobile_menu">
             <img src="./icons/menu.png" alt="" />
           </div>
             </div>

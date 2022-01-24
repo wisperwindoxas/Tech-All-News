@@ -17,9 +17,6 @@ export default function Sections() {
     const [idPost, setIdPost] = React.useState([])
     const [isLoader] = React.useState([1,2,3,4,5,6,7,8,9,10,11,12])
 
-    
-    console.log(isLoader);
-
     React.useEffect(() => {
        async function getAllPost(){
         const postCollection = await getDocs(collection(db, 'posts'));
@@ -67,7 +64,7 @@ export default function Sections() {
 
             )
         }): isLoader.map(item => {
-            return <div className="lodaer">
+            return <div key={item} className="lodaer">
                 <MyLoader/>
             </div>
         })
