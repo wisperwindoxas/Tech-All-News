@@ -45,7 +45,7 @@ export default function PostBlog() {
         <div className='posts'>
                     <h1>{posts.titlePost}</h1>
                     <img src={posts.photoPost} alt="" />
-                    {posts.videoUrl ? <iframe src={posts.videoUrl} frameBorder="0"></iframe> : ""}
+                    {posts.videoUrl ? <iframe src={posts.videoUrl} title="myFrame" frameBorder="0"></iframe>  : ""}
                     <p>{posts.descriptionsOne}</p>
                     <img src={posts.photoOne} alt="" />
                     <p>{posts.descriptionsTwo}</p>
@@ -58,4 +58,3 @@ export default function PostBlog() {
     </>
   )
 }
-{/* <iframe width="640" height="360" src="https://www.youtube.com/embed/wCr7qoOXcXc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><iframe width="640" height="360" src="https://www.youtube.com/embed/wCr7qoOXcXc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}

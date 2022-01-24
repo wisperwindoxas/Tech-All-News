@@ -15,9 +15,9 @@ export default function Sections() {
 
     const [posts, setPosts] = React.useState([])
     const [idPost, setIdPost] = React.useState([])
-    const [isLoader, setIsLoader] = React.useState([1,2,3,4,5,6,7,8,9,10,11,12])
+    const [isLoader] = React.useState([1,2,3,4,5,6,7,8,9,10,11,12])
 
-   
+    
     console.log(isLoader);
 
     React.useEffect(() => {
